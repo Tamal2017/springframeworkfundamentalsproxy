@@ -11,4 +11,9 @@ public class UserServiceImpl implements UserService {
   public void greetInFrench() {
     System.out.println("Salut tout le monde !");
   }
+
+  @Override
+  public void greetInSpanish() {
+    System.out.println("Hola todo el mundo !");
+  }
 }
