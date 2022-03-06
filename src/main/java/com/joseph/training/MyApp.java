@@ -1,15 +1,14 @@
 package com.joseph.training;
 
-import org.springframework.aop.framework.ProxyFactoryBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MyApp {
 
   public static void main(String[] args) {
-    IUser user = new User();
-    ProxyFactoryBean proxyFactoryBean = new ProxyFactoryBean();
-    proxyFactoryBean.setTarget(user);
-    IUser proxy = (IUser) proxyFactoryBean.getObject();
-    proxy.greet();
+    ApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigApp.class);
+    UserService service = ctx.getBean(UserService.class);
+    service.businessService();
   }
 
 }
